@@ -55,6 +55,9 @@ export const listDragHandle = style([
       [`${listViewRoot}:hover &`]: {
         opacity: 1,
       },
+      'html[dir="rtl"] &': {
+        transform: 'translateY(-50%) translateX(100%)',
+      },
     },
   },
 ]);
@@ -272,6 +275,9 @@ export const cardDragHandle = style([
     selectors: {
       [`${cardViewRoot}:hover &`]: {
         opacity: 1,
+      },
+      'html[dir="rtl"] &': {
+        transform: 'translateX(100%)',
       },
     },
   },
