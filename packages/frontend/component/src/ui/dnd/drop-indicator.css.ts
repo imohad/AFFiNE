@@ -14,7 +14,7 @@ export const treeLine = style({
   position: 'absolute',
   top: 0,
   insetInlineEnd: 0,
-  left: horizontalIndent,
+  insetInlineStart: horizontalIndent,
   bottom: 0,
 
   // We don't want to cause any additional 'dragenter' events
@@ -30,7 +30,7 @@ export const treeLine = style({
     boxSizing: 'border-box',
     width: terminalSize,
     height: terminalSize,
-    left: 0,
+    insetInlineStart: 0,
     background: 'transparent',
     borderColor: indicatorColor,
     borderWidth: 2,
@@ -45,7 +45,7 @@ export const treeLine = style({
     position: 'absolute',
     zIndex: 1,
     background: indicatorColor,
-    left: `calc(${terminalSize} / 2)`, // putting the line to the right of the terminal
+    insetInlineStart: `calc(${terminalSize} / 2)`, // putting the line to the inline-end of the terminal
     height: 2,
     insetInlineEnd: 0,
   },
@@ -88,7 +88,7 @@ export const outlineStyles = style({
   position: 'absolute',
   top: 0,
   insetInlineEnd: 0,
-  left: horizontalIndent,
+  insetInlineStart: horizontalIndent,
   bottom: 0,
 
   // We don't want to cause any additional 'dragenter' events
@@ -102,11 +102,11 @@ export const outlineStyles = style({
 
 export const horizontal = style({
   height: 2,
-  left: `calc(${terminalSize}/2)`,
+  insetInlineStart: `calc(${terminalSize}/2)`,
   insetInlineEnd: 0,
   '::before': {
-    // Horizontal indicators have the terminal on the left
-    left: `calc(-1 * ${terminalSize})`,
+    // Horizontal indicators have the terminal on the inline-start side
+    insetInlineStart: `calc(-1 * ${terminalSize})`,
   },
 });
 
@@ -129,9 +129,9 @@ export const top = style({
   },
 });
 export const right = style({
-  right: localLineOffset,
+  insetInlineEnd: localLineOffset,
   '::before': {
-    right: `calc(-1 * ${terminalSize} + 1px)`,
+    insetInlineEnd: `calc(-1 * ${terminalSize} + 1px)`,
   },
 });
 export const bottom = style({
@@ -141,9 +141,9 @@ export const bottom = style({
   },
 });
 export const left = style({
-  left: localLineOffset,
+  insetInlineStart: localLineOffset,
   '::before': {
-    left: `calc(-1 * ${terminalSize} + 1px)`,
+    insetInlineStart: `calc(-1 * ${terminalSize} + 1px)`,
   },
 });
 
